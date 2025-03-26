@@ -1,39 +1,31 @@
-import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
+// App.tsx
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from './pages/About';
+import CommunityBoard from './pages/CommunityBoard';
+import Products from './pages/Products';
+import NavBar from './components/NavBar';
+import MainInterface from './components/MainInterface';
 
-const client = generateClient<Schema>();
 
-function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
-  }
-
+const App: React.FC = () => {
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
-    </main>
+    <Router>
+     
+      <Routes>
+        {/* Home Page (Main Interface) */}
+        <Route path="/" element={<MainInterface />} />
+        
+        {/* About Page */}
+        <Route path="/about" element={<About />} />
+        
+        {/* Community Board Page */}
+        <Route path="/community-board/*" element={<CommunityBoard />} />
+        
+        {/* Products Page */}
+        <Route path="/products" element={<Products />} />
+      </Routes>
+    </Router>
   );
 }
 
