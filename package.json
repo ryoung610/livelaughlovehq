@@ -14,8 +14,10 @@
     "@tailwindcss/vite": "^4.0.13",
     "autoprefixer": "^10.4.21",
     "aws-amplify": "^6.6.6",
+    "framer-motion": "^12.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^7.4.0",
     "tailwindcss": "^4.0.13"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "@aws-amplify/backend-cli": "^1.2.9",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
