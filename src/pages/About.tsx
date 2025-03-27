@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import NavBar from '../components/NavBar';
 import Slidegame from '../components/Slidegame';
 import robcomp from "../assets/robcomp.jpg";
